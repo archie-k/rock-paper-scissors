@@ -1,11 +1,10 @@
 let computerSelection;
-let playerSelection = "paper";
+let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() {
   let randomNumber = Math.round(Math.random() * 2);
-  console.log(randomNumber);
   if (randomNumber == 0) {
     computerSelection = "rock";
   } else if (randomNumber === 1) {
@@ -13,7 +12,6 @@ function computerPlay() {
   } else {
     computerSelection = "scissors";
   }
-  console.log(computerSelection);
 }
 
 function playRound(playerSelection, computerSelection) {
