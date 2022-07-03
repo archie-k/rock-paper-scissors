@@ -59,14 +59,14 @@ function scoreChecker() {
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-    computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+//     computerPlay();
+//     console.log(playRound(playerSelection, computerSelection));
+//   }
 
-  scoreChecker();
-}
+//   scoreChecker();
+// }
 
 game();
