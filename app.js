@@ -1,3 +1,11 @@
+const btn = document.querySelectorAll("input");
+
+btn.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    console.log("click");
+  });
+});
+
 let computerSelection;
 let playerSelection;
 let playerScore = 0;
@@ -69,4 +77,4 @@ function scoreChecker() {
 //   scoreChecker();
 // }
 
-game();
+// game();
