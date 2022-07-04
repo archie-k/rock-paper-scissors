@@ -1,15 +1,29 @@
-const btn = document.querySelectorAll("input");
-
-btn.forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    console.log("click");
-  });
-});
+const rockButton = document.querySelector(".btn-rock");
+const paperButton = document.querySelector(".btn-paper");
+const scissorsButton = document.querySelector(".btn-scissors");
+const resultText = document.querySelector(".results-text");
+const playerScoreDisplay = document.querySelector(".player-score");
+const computerScoreDisplay = document.querySelector(".computer-score");
 
 let computerSelection;
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+
+computerPlay();
+rockButton.addEventListener("click", function () {
+  playerSelection = "rock";
+  playRound(playerSelection, computerSelection);
+});
+
+paperButton.addEventListener("click", () => {
+  playerSelection = "paper";
+  playRound(playerSelection, computerSelection);
+});
+scissorsButton.addEventListener("click", () => {
+  playerSelection = "scissors";
+  playRound(playerSelection, computerSelection);
+});
 
 function computerPlay() {
   let randomNumber = Math.round(Math.random() * 2);
@@ -23,58 +37,66 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+  computerPlay();
   if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    return "You win, paper beats rock";
+    playerScoreDisplay.textContent = playerScore;
+    resultText.textContent = "You win, paper beats rock";
+    scoreChecker();
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
-    return "You lose, paper beats rock";
+    computerScoreDisplay.textContent = computerScore;
+    resultText.textContent = "You lose, paper beats rock";
+    scoreChecker();
   } else if (playerSelection === "paper" && computerSelection === "paper") {
-    return "It's tie, paper vs paper!";
+    resultText.textContent = "It's tie, paper vs paper!";
   }
 
   if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    return "You win! Scissors beats paper!";
+    resultText.textContent = "You win! Scissors beats paper!";
+    playerScoreDisplay.textContent = playerScore;
+    scoreChecker();
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
-    return "You lose! Scissors beats paper";
+    computerScoreDisplay.textContent = computerScore;
+    resultText.textContent = "You lose! Scissors beats paper";
+    scoreChecker();
   } else if (
     playerSelection === "scissors" &&
     computerSelection === "scissors"
   ) {
-    return "It's tie, scissors vs scissors!";
+    resultText.textContent = "It's tie, scissors vs scissors!";
   }
 
   if (playerSelection === "rock" && computerSelection === "scissors") {
     playerScore++;
-    return "You win! Rock beats scissors";
+    playerScoreDisplay.textContent = playerScore;
+    resultText.textContent = "You win! Rock beats scissors";
+    scoreChecker();
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
-    return "You lose! Rock bests scissors";
+    computerScoreDisplay.textContent = computerScore;
+    resultText.textContent = "You lose! Rock bests scissors";
+    scoreChecker();
   } else if (playerSelection === "rock" && computerSelection === "rock") {
-    return "It's tie, rock vs rock!";
+    resultText.textContent = "It's tie, rock vs rock!";
   }
 }
 
 function scoreChecker() {
-  if (playerScore > computerScore) {
-    console.log("You Wins");
-  } else if (playerScore > computerScore) {
-    console.log("Computer wins");
-  } else {
-    console.log("its tie!");
+  if (playerScore === 5) {
+    resultText.textContent = "You wins";
+  } else if (computerScore === 5) {
+    resultText.textContent = "Computer wins";
   }
 }
 
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-//     computerPlay();
-//     console.log(playRound(playerSelection, computerSelection));
-//   }
+function game() {
+  for (let i = 0; i < 5; i++) {
+    computerPlay();
+    scoreChecker();
+  }
+}
 
-//   scoreChecker();
-// }
-
-// game();
+game();
