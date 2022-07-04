@@ -38,3 +38,31 @@ h1 {
   font-family: "Press Start 2P", cursive;
   font-size: 36px;
 }
+
+.score-text {
+  font-family: "Press Start 2P", cursive;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: "Press Start 2P", cursive;
+  padding: 20px 30px;
+  border: 0px;
+  background-color: lawngreen;
+}
+
+:hover .btn {
+  cursor: pointer;
+}
+
+.results-container {
+  margin-top: 40px;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+}

@@ -20,23 +20,29 @@
     </header>
     <main class="container">
       <span class="info-text">Choose your destiny!</span>
-      <span class="info-text">Score:</span>
+      <span class="info-text">Score: <span class="result"></span></span>
       <div class="score-container">
         <div class="player">
           <img src="" alt="" />
-          <p>Player: <span class="score player-score">0</span></p>
+          <p>
+            <spam class="score-text">Player:</spam>
+            <span class="score player-score">0</span>
+          </p>
         </div>
         <div class="computer">
-          <p>Computer:<span class="score computer-score">0</span></p>
+          <p>
+            <span class="score-text">Computer:</span
+            ><span class="score computer-score">0</span>
+          </p>
         </div>
+      </div>
+      <div class="results-container">
+        <span class="results-text"></span>
       </div>
       <div class="button-container">
         <input class="btn btn-rock" type="button" value="Rock" />
         <input class="btn btn-paper" type="button" value="Paper" />
         <input class="btn btn-scissors" type="button" value="Scissors" />
-      </div>
-      <div class="results-container">
-        <span class="results-text"></span>
       </div>
     </main>
   </body>
